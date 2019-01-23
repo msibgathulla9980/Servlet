@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login Page</title>
+</head>
+<body bgcolor="#D87093">
+    <center>
+        <form name="header" action="./receive" method="post">
+            <table bgcolor="#AFEEEE" border="1">
+                <tr>
+                    <th>Enter user name : </th>
+                    <td><input type="text" name="header_euname" value=""></td>
+                </tr>
+                <tr>
+                    <th>Enter password : </th>
+                    <td><input type="password" name="header_epwd" value=""></td>
+                </tr>
+                <tr>
+                    <td align="center"><input type="submit" name="header_login" value="Login"></td>
+                    <td align="center"><input type="reset" name="header_reset" value="Reset"></td>
+                </tr>
+            </table>
+        </form>
+    </center>
+    </body>
+</html>

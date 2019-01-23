@@ -1,0 +1,66 @@
+package com.bridgelabz.config.dbutil.model.details;
+
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.bridgelabz.config.dbutil.model.config.MySQLConnUtils;
+import com.bridgelabz.config.dbutil.model.details.RegistrationDetails;
+
+@SuppressWarnings("serial")
+public class RegistrationServlet extends HttpServlet {
+	
+	static List<RegistrationDetails> list=new ArrayList<RegistrationDetails>();
+
+@Override
+protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	@SuppressWarnings("unused")
+	String fname=req.getParameter("firstname");
+    String lname=req.getParameter("lastname");
+    String email=req.getParameter("emailid");
+    String password=req.getParameter("password");
+    String mobileNumber=req.getParameter("phonenumber");
+    String gender=req.getParameter("gender");
+    RegistrationDetails user = new RegistrationDetails();
+    user.setFirstName(fname);
+    user.setLastName(lname);
+    user.setEmail(email);
+    user.setPassword(password);
+    user.setPhoneNumber(mobileNumber);
+    list.add(user);
+    display(user);
+      try {
+		MySQLConnUtils.Registration(list);
+	} catch (ClassNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+        RequestDispatcher dis1= req.getRequestDispatcher("/login.html");
+        dis1.forward(req, resp);
+    }    
+	
+	
+	
+	
+	
+	
+void display(RegistrationDetails reg) {
+	System.out.println("The Registration Details are:");
+	System.out.println("FirstName:"+reg.getFirstName());
+	System.out.println("LastName:"+reg.getLastName());
+	System.out.println("Email:"+reg.getEmail());
+	System.out.println("Password:"+reg.getPassword());
+	System.out.println("Mobile:"+reg.getPhoneNumber());
+}
+
+}

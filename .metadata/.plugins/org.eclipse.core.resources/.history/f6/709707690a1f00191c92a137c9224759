@@ -1,0 +1,44 @@
+package com.bridgelabz.config.dbutil.model.config;
+
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.List;
+
+import com.bridgelabz.config.dbutil.model.details.RegistrationDetails;
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
+
+public class MySQLConnUtils {
+
+	public static Connection getMySQLConnection() throws ClassNotFoundException, SQLException {
+		String hostName="localhost";
+		String dbName="Servletjdbc";
+		String userName = "root";
+		String password = "password";
+				return getMySQLConnection(hostName, dbName, userName, password);
+	}
+	public static Connection getMySQLConnection(String hostName, String dbName,String userName, String password) throws SQLException,
+	         ClassNotFoundException {
+		Class.forName("com.mysql.jdbc.Driver");
+		String connectionURL="jdbc:mysql://" +hostName+":3306/" +dbName;
+		Connection conn=(Connection) DriverManager.getConnection(connectionURL, userName, password);
+		return conn;
+		
+	}
+	
+	public static void Registration(List<RegistrationDetails> list) throws ClassNotFoundException, SQLException {
+		String query="insert into User (UserID, firstName, lastName, Email,PhoneNumber,password) VALUES(?,?,?,?,?,?)";
+		Connection conn=getMySQLConnection();
+		PreparedStatement preparedstmt=(PreparedStatement) conn.prepareStatement(query);
+		preparedstmt.setInt(1, 0);
+		preparedstmt.setString(2,((RegistrationDetails) list).getFirstName());
+		preparedstmt.setString(3,((RegistrationDetails) list).getLastName());
+		preparedstmt.setString(4,((RegistrationDetails) list).getEmail());
+		preparedstmt.setInt(5,((RegistrationDetails) list).getPhoneNumber());
+		preparedstmt.setString(6,((RegistrationDetails) list).getPassword());
+		preparedstmt.execute();
+		conn.close();
+		
+	}
+	}
+	    

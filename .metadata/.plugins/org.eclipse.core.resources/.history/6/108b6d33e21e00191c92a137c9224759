@@ -1,0 +1,30 @@
+package com.bridgelabz;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.io.*;
+
+@SuppressWarnings("serial")
+public class DispServ extends HttpServlet {
+
+    public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        res.setContentType("text/html");
+        PrintWriter pw = res.getWriter();
+        String uname = req.getParameter("header_euname");
+        String pwd = req.getParameter("header_epwd");
+        RequestDispatcher rd1 = req.getRequestDispatcher("header.html");
+        rd1.include(req, res);
+        pw.println("<br><br><br>");
+        if (uname.equals("kvr") && pwd.equals("advanced")) {
+            pw.println("<center><font color=#ffff66><h3>VALID CREDENTIALS</h3></center>");
+        } else {
+            pw.println("<center><font color=#ffff66><h3>INVALID CREDENTIALS</h3></center>");
+        }
+        pw.println("</font></br></br></br>");
+        RequestDispatcher rd2 = req.getRequestDispatcher("footer.html");
+        rd2.include(req, res);
+    }
+
+    public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        doGet(req, res);
+    }
+};

@@ -1,0 +1,23 @@
+package com.bridgelabz;
+i
+port javax.servlet.*;
+import javax.servlet.ServletException;
+import javax.servlet.http.*;
+
+import org.apache.catalina.servlet4preview.RequestDispatcher;
+
+import java.io.*;
+
+public class RecvServ extends HttpServlet {
+
+    public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        res.setContentType("text/html");
+        PrintWriter pw = res.getWriter();
+        RequestDispatcher rd = (RequestDispatcher) req.getRequestDispatcher("/display");
+        rd.forward(req, res);
+    }
+
+    public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        doGet(req, res);
+    }
+};

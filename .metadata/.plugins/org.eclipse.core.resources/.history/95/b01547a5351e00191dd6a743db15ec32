@@ -1,0 +1,29 @@
+<html>
+ 
+  <frame src="frame_a.htm" frameborder="0">
+  <frame src="frame_b.htm" frameborder="0">
+</frame> 
+<head>
+<h3><b><object align="center"></object>Welcome To Bridge Labz</b></h3>
+</head>
+<title>LoginPage</title>
+<p>Please Enter Your Correct Details: </p>
+<body>
+<form action="Register" method="post">
+FirstName: <input type="text" name="firstName" placeholder="Enter Your FirstName" /><br>
+LastName : <input type="text" name="lastName" placeholder="Enter Your LastName"/><br>
+Email    : <input type="email" name="email" placeholder="Enter Your Email" /><br>
+Password : <input type="password" name="password" placeholder="Enter Your Password" /><br>
+Mobile   : <input type="text" name="phoneNumber" placeholder="Enter Your 10 digit PhoneNumber" /><br>
+Gender   : 
+<label for="male">Male</label>
+  <input type="radio" name="gender" id="male" value="male" >
+  <label for="female">Female</label>
+ <input type="radio" name="gender" id="female" value="female" >
+  <label for="other">Other</label>
+ <a href="login.html"><input type="radio" name="gender" id="other" value="other" ><br><br>
+<input type="submit" value="Click here to Login"/></a>
+<input type="submit" value="SignUp"/>
+</form>
+</body>
+</html>

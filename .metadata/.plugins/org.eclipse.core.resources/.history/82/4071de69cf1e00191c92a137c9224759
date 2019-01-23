@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>LogoutPage</title>
+</head>
+<body>
+<h3><object align="middle"></object>You've Successfully Logged Out</h3>
+<h4>To Continue Login</h4>
+<a href="login.html" ><input type="submit" value="Login"/></a>
+</body>
+</html>

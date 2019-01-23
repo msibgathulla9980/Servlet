@@ -1,0 +1,48 @@
+package com.bridgelabz.config.dbutil.model.details;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.bridgelabz.config.dbutil.model.config.MySQLConnUtils;
+import com.bridgelabz.config.dbutil.model.details.RegistrationDetails;
+
+@SuppressWarnings("serial")
+public class RegistrationServlet extends HttpServlet {
+	
+	//static List<RegistrationDetails> list=new ArrayList<RegistrationDetails>();
+
+@Override
+protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	@SuppressWarnings("unused")
+	RegistrationDetails reg=new RegistrationDetails(firstName,lastName,email,password,phoneNumber);
+//	reg.setFirstName(req.getParameter("firstName"));
+//	reg.setLastName(req.getParameter("lastName"));
+//	reg.setEmail(req.getParameter("email"));
+//	reg.setPassword(req.getParameter("password"));
+//	reg.setPhoneNumber(req.getParameter("phoneNumber"));
+	
+	
+	 try {
+		 MySQLConnUtils.Registration(reg);
+     } catch (Exception e) {
+          e.printStackTrace();
+     }
+//	list.add(reg);
+//	display(reg);
+//	
+//	}
+//void display(RegistrationDetails reg) {
+//	System.out.println("The Registration Details are:");
+//	System.out.println("FirstName:"+reg.getFirstName());
+//	System.out.println("LastName:"+reg.getLastName());
+//	System.out.println("Email:"+reg.getEmail());
+//	System.out.println("Password:"+reg.getPassword());
+//	System.out.println("Mobile:"+reg.getPhoneNumber());
+//}
+
+}

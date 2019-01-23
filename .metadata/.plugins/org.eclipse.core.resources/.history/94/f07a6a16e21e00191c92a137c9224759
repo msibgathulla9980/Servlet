@@ -1,0 +1,5 @@
+package com.bridgelabz.config.dbutil.model.servlet;
+
+public class LoginDetails {
+
+}

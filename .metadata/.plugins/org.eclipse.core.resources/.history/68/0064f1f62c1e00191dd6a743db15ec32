@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="login", method="post">
+Email:<input type="text", name="email" required/><br>
+<a href="index.html">Click Here to SignUp</a>
+</body>
+</html>

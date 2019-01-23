@@ -1,0 +1,13 @@
+package com.bridgelabz.config.dbutil.model.config;
+
+import java.io.ObjectInputStream.GetField;
+
+public class MySQLConnUtils {
+
+	public static getMySQLConnection() {
+		String hostName="localhost";
+		String dbName="Servletjdbc";
+		 String userName = "root";
+	     String password = "password";
+	}
+}

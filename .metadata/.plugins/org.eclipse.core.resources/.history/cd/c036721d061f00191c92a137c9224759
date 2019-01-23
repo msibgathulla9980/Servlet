@@ -1,0 +1,71 @@
+package com.bridgelabz.config.dbutil.model.details;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.bridgelabz.config.dbutil.model.config.MySQLConnUtils;
+import com.bridgelabz.config.dbutil.model.details.RegistrationDetails;
+
+@SuppressWarnings("serial")
+public class RegistrationServlet extends HttpServlet {
+	
+	static List<RegistrationDetails> list=new ArrayList<RegistrationDetails>();
+
+@Override
+protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	@SuppressWarnings("unused")
+	String fname=req.getParameter("firstname");
+    String lname=req.getParameter("lastname");
+    String email=req.getParameter("emailid");
+    String password=req.getParameter("password");
+    String mobileNumber=req.getParameter("phonenumber");
+    String gender=req.getParameter("gender");
+    if(fname.equals("")||lname.equals("")||email.equals("")||password.equals("")||mobileNumber.equals("")||gender.equals(""))
+    {
+        RequestDispatcher dis= req.getRequestDispatcher("/registration.html");
+        dis.include(req, resp);
+    }
+    else {
+    	RegistrationDetails user = new RegistrationDetails();
+        user.setFirstName(fname);
+        user.setLastName(lname);
+        user.setEmail(email);
+        user.setPassword(password);
+        user.setPhoneNumber(mobileNumber);
+        
+        try {
+        	MySQLConnUtils.registration(user);
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        userList.add(user);
+        RequestDispatcher dis1= req.getRequestDispatcher("/login.html");
+        dis1.forward(req, resp);
+    }    
+	
+	 try {
+		 MySQLConnUtils.Registration(reg);
+     } catch (Exception e) {
+          e.printStackTrace();
+     }
+	list.add(reg);
+	display(reg);
+	
+	}
+void display(RegistrationDetails reg) {
+	System.out.println("The Registration Details are:");
+	System.out.println("FirstName:"+reg.getFirstName());
+	System.out.println("LastName:"+reg.getLastName());
+	System.out.println("Email:"+reg.getEmail());
+	System.out.println("Password:"+reg.getPassword());
+	System.out.println("Mobile:"+reg.getPhoneNumber());
+}
+
+}

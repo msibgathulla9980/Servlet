@@ -1,0 +1,27 @@
+<html>
+<head>
+<h3><b><center>Welcome To Bridge Labz</center></b></h3>
+</head>
+<title>BridgeLabz Registration</title>
+<center><p>Please Enter Your Valid Credentials: </p></center>
+<body>
+<center>
+<form action="Register" method="post">
+FirstName: <input type="text" name="firstName" placeholder="Enter Your FirstName" required/>&nbsp
+LastName : <input type="text" name="lastName" placeholder="Enter Your LastName" required/><br><br>
+Email    : <input type="email" name="email" placeholder="Enter Your Email" required/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+Password : <input type="password" name="password" placeholder="Enter Your Password" required/><br><br>
+Mobile   : <input type="text" name="phoneNumber" placeholder="Enter Your 10 digit PhoneNumber" required/>
+Gender   : 
+<label for="male">Male</label>
+  <input type="radio" name="gender" id="male" value="male" >
+  <label for="female">Female</label>
+ <input type="radio" name="gender" id="female" value="female" >
+  <label for="other">Other</label>
+ <input type="radio" name="gender" id="other" value="other" ><br><br>
+<a href="login.html" >SignUpinput type="submit" value="SignUp"</a>
+</form>
+<a href="login.html" ><input type="submit" value="Login"/></a>
+<center>
+</body>
+</html>
