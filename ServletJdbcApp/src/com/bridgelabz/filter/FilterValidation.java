@@ -1,0 +1,54 @@
+package com.bridgelabz.filter;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class FilterValidation  implements Filter{
+    static final String REGEX_EMAIL_ID = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\\\.[A-Z]{2,6}$";
+  static final String REGEX_PASSWORD = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$";
+    static final String REGEX_CONTACT = "^[0-9]{10}$";
+    
+	@Override
+	public void destroy() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain obj)
+			throws IOException, ServletException {
+		PrintWriter out=resp.getWriter();
+		RequestDispatcher reqDisp=null;
+		HttpServletRequest request=(HttpServletRequest) req;
+		HttpServletResponse response=(HttpServletResponse) resp;
+		String phone=request.getParameter("phoneNumber");
+		if(phone.matches(REGEX_CONTACT)){
+			obj.doFilter(request, response);
+//			out.print("<p><b>The entered details already exists, Please Login<b><p>");
+//			reqDisp=request.getRequestDispatcher("/login.html");
+//			reqDisp.forward(request, response);
+			
+		}
+		else {
+			out.print("<p><b>Please Enter the Valid Credentials<b><p>");
+			reqDisp=request.getRequestDispatcher("/Registration.html");
+			reqDisp.include(request, response);
+		}
+		
+		
+	}
+	@Override
+	public void init(FilterConfig arg0) throws ServletException {
+		// TODO Auto-generated method stub
+		
+	}
+}

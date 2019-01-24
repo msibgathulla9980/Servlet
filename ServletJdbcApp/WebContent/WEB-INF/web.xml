@@ -25,4 +25,13 @@
   <servlet-name>LoginServlet</servlet-name>
    <url-pattern>/login</url-pattern>
   </servlet-mapping>
+  <filter-mapping>
+  <filter-name>Servlet</filter-name>
+  <url-pattern>/Register</url-pattern>
+  </filter-mapping>
+  <filter>
+  <filter-name>Servlet</filter-name>
+  <filter-class>com.bridgelabz.filter.FilterValidation</filter-class>
+  </filter>
+
 </web-app>

@@ -1,10 +1,8 @@
 package com.bridgelabz.config.dbutil.model.details;
-
+import com.bridgelabz.filter.*;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,6 +20,7 @@ public class RegistrationServlet extends HttpServlet {
 @Override
 protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	@SuppressWarnings("unused")
+	PrintWriter out= resp.getWriter();
 	String fname=req.getParameter("firstName");
     String lname=req.getParameter("lastName");
     String email=req.getParameter("email");
@@ -33,6 +32,8 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
     user.setEmail(email);
     user.setPassword(password);
     user.setPhoneNumber(mobileNumber);
+    
+    
     //list.add(user);
       try {
 		MySQLConnUtils.Registration(user);
@@ -40,8 +41,10 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
+     
         RequestDispatcher dis= req.getRequestDispatcher("/login.html");
         dis.forward(req, resp);
+        
     }    
 	
 	

@@ -6,8 +6,10 @@ public class RegistrationDetails {
 	private String lastName;
 	private String email;
 	private String password;
-	private int phoneNumber;
-
+	private String phoneNumber;
+	
+	
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -32,11 +34,11 @@ public class RegistrationDetails {
 	public String setPassword(String password) {
 		return this.password = password;
 	}
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
-	public void setPhoneNumber(String string) {
-		this.phoneNumber = phoneNumber;
+	public String setPhoneNumber(String phoneNumber) {
+		return this.phoneNumber = phoneNumber;
 	}
 	
 	

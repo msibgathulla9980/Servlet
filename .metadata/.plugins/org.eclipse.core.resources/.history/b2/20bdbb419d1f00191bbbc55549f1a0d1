@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<h3><b><center>LOGIN PAGE</b></center></h3>
+<meta charset="UTF-8">
+<title>Bridge Labz Login</title>
+</head>
+<body>
+<fieldset>
+<center>
+<h3>You've Registered Successfully</h3><br>
+<h4>To Continue Login</h4>
+<form action="login" method="post">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email :
+<input type="email" name="email" placeholder="Your Email" required/><br><br>
+<label for="password">Password</label>
+Password :
+<input type="password" placeholder="Your Password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number 
+and one uppercase and lowercase letter, and at least 8 or more characters" required><br><br>
+<div id="message">
+  <h3>Password must contain the following:</h3>
+  <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+  <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+  <p id="number" class="invalid">A <b>number</b></p>
+  <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+</div>
+ <a href=Welcome.html><input type="submit" value="Login"/></a>
+</form>
+<a href=Registration.html><input type="submit" value="NewUser" /></a>
+</center>
+</fieldset>
+</body>
+</html>

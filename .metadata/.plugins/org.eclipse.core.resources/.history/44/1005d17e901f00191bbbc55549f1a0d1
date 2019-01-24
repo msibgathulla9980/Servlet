@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<h3><b><center>LOGIN PAGE</b></center></h3>
+<meta charset="UTF-8">
+<title>Bridge Labz Registration</title>
+</head>
+<body>
+<center>
+<h3>You've Registered Successfully</h3><br>
+<h4>To Continue Login</h4>
+<form action="login" method="post">
+Email:
+<input type="email" name="email" placeholder="Your Email" required/><br><br>
+Password:
+&nbsp;<input type="password" name="password" placeholder="Your Password" required/><br><br>
+ <a href=Welcome.html><input type="submit" value="Login"/></a>
+  <a href=login.html><input type="submit" value="NewUser"/></a>
+</form>
+</center>
+</body>
+</html>

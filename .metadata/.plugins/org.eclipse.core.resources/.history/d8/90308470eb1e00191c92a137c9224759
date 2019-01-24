@@ -1,5 +1,0 @@
-package com.bridgelabz.config.dbutil.model.config;
-
-public class MySQLConnUtils {
-
-}

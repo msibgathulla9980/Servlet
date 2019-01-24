@@ -1,0 +1,64 @@
+package com.bridgelabz.config.dbutil.model.details;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.bridgelabz.config.dbutil.model.config.MySQLConnUtils;
+import com.bridgelabz.config.dbutil.model.details.RegistrationDetails;
+
+@SuppressWarnings("serial")
+public class RegistrationServlet extends HttpServlet {
+	
+	//static List<RegistrationDetails> list=new ArrayList<RegistrationDetails>();
+
+@Override
+protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	@SuppressWarnings("unused")
+	PrintWriter out= resp.getWriter();
+	String fname=req.getParameter("firstName");
+    String lname=req.getParameter("lastName");
+    String email=req.getParameter("email");
+    String password=req.getParameter("password");
+    String mobileNumber=req.getParameter("phoneNumber");
+    RegistrationDetails user = new RegistrationDetails();
+    user.setFirstName(fname);
+    user.setLastName(lname);
+    user.setEmail(email);
+    user.setPassword(password);
+    user.setPhoneNumber(mobileNumber);
+    //list.add(user);
+      try {
+		MySQLConnUtils.Registration(user);
+	} catch (ClassNotFoundException|SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+      
+        RequestDispatcher dis= req.getRequestDispatcher("/login.html");
+        dis.forward(req, resp);
+    }    
+	
+	
+	
+	
+	
+	
+//void display(RegistrationDetails reg) {
+//	System.out.println("The Registration Details are:");
+//	System.out.println("FirstName:"+reg.getFirstName());
+//	System.out.println("LastName:"+reg.getLastName());
+//	System.out.println("Email:"+reg.getEmail());
+//	System.out.println("Password:"+reg.getPassword());
+//	System.out.println("Mobile:"+reg.getPhoneNumber());
+//}
+
+}

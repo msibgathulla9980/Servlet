@@ -27,12 +27,12 @@ PrintWriter out= resp.getWriter();
 			 //passing user details and receiving the boolean 
 				RegistrationDetails logcheck1=MySQLConnUtils.Registration1(log);
 				if (logcheck1!=null)
-				{
+				{    
 					   RequestDispatcher dis= req.getRequestDispatcher("/Welcome.html");
 				        dis.forward(req, resp);
 				}
 				else {
-                 out.print("<h5><p>Password Mismatch</p></h5>");				
+                 out.print("<p><b>Invalid Username and Password</b></p>");				
 					 RequestDispatcher dis= req.getRequestDispatcher("/login.html");
 				        dis.include(req, resp);
 				}
@@ -67,10 +67,10 @@ PrintWriter out= resp.getWriter();
 //	}   
 
 
-
-	void display1(RegistrationDetails log) {
-		System.out.println("The Login Details are:");
-		System.out.println("Email ID:"+log.getEmail());
-		System.out.println("Password:"+log.getPassword());
-	}
+//
+//	void display1(RegistrationDetails log) {
+//		System.out.println("The Login Details are:");
+//		System.out.println("Email ID:"+log.getEmail());
+//		System.out.println("Password:"+log.getPassword());
+//	}
 }

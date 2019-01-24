@@ -1,0 +1,61 @@
+package com.bridgelabz.config.dbutil.model.details;
+
+public class RegistrationDetails {
+
+	private String firstName;
+	private String lastName;
+	private String email;
+	private String password;
+	private String phoneNumber;
+	private String gender;
+	public String getMale() {
+		return male;
+	}
+	public void setMale(String male) {
+		this.male = male;
+	}
+	public String getFemale() {
+		return female;
+	}
+	public void setFemale(String female) {
+		this.female = female;
+	}
+	public String getOther() {
+		return other;
+	}
+	public void setOther(String other) {
+		this.other = other;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public String setEmail(String email) {
+		return this.email = email;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public String setPassword(String password) {
+		return this.password = password;
+	}
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	public String setPhoneNumber(String phoneNumber) {
+		return this.phoneNumber = phoneNumber;
+	}
+	
+	
+}
