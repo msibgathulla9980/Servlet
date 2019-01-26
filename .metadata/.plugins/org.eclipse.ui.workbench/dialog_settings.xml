@@ -6,20 +6,15 @@
 		<item value="667" key="dialogHeight"/>
 		<item value="783" key="dialogWidth"/>
 		<list key="textEntries">
-			<item value="2"/>
 			<item value="1"/>
 		</list>
 		<list key="orderedElements">
-			<item value="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPartLoginRegistrationApp/WebContent/WEB-INF/web.xml"/>
 			<item value="org.eclipse.ui.views.ResourceNavigator"/>
 		</list>
 		<list key="orderedProviders">
-			<item value="org.eclipse.ui.editors"/>
 			<item value="org.eclipse.e4.ui.parts"/>
 		</list>
 		<list key="textArray">
-			<item value="web"/>
-			<item value="web.xml"/>
 			<item value="navi"/>
 		</list>
 	</section>
