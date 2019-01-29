@@ -1,5 +1,4 @@
 package com.bridgelabz.config.dbutil.model.details;
-import com.bridgelabz.filter.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;

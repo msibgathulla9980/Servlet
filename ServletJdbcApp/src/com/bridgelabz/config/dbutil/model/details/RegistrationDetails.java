@@ -37,8 +37,8 @@ public class RegistrationDetails {
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
-	public String setPhoneNumber(String phoneNumber) {
-		return this.phoneNumber = phoneNumber;
+	public String setPhoneNumber(String mobileNumber) {
+		return this.phoneNumber = mobileNumber;
 	}
 	
 	

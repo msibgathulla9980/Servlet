@@ -26,7 +26,7 @@ public class MySQLConnUtils {
 	}
 	
 	public static void Registration(RegistrationDetails user) throws ClassNotFoundException, SQLException {
-		String query="insert into User (UserID, firstName, lastName, Email,PhoneNumber,password) VALUES(?,?,?,?,?,?)";
+		String query="insert into User (UserID, firstName, lastName, Email, PhoneNumber, password) VALUES(?,?,?,?,?,?)";
 		Connection conn=getMySQLConnection();
 		PreparedStatement preparedstmt=(PreparedStatement) conn.prepareStatement(query);
 		preparedstmt.setInt(1, 0);

@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @SuppressWarnings("serial")
 public class LoginServlet extends HttpServlet {
@@ -20,6 +21,7 @@ public class LoginServlet extends HttpServlet {
 		String p=log.setPassword(req.getParameter("password"));
 		//	RegistrationServlet.list.add(log);	
 		display1(log);
+		
 //		for(RegistrationDetails req1:RegistrationServlet.list) {
 			if(email.equalsIgnoreCase("msibgathulla@gmail.com")&&(p.equalsIgnoreCase("Thanos"))) {
 //				resp.setContentType("Welcome.html");
@@ -38,6 +40,7 @@ public class LoginServlet extends HttpServlet {
 					rd.include(req, resp);   //same page
 
 			}
+			
 		
 	}   
 
