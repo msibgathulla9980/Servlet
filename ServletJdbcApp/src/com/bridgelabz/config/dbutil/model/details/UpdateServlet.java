@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import com.bridgelabz.config.dbutil.model.config.MySQLConnUtils;
 
-import com.bridgelabz.config.dbutil.model.config.UserUpdate;
 
-@SuppressWarnings("serial")
+@SuppressWarnings({ "serial", "unused" })
 public class UpdateServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -19,7 +19,6 @@ public class UpdateServlet extends HttpServlet{
 		PrintWriter out= resp.getWriter();
 		 HttpSession session = req.getSession(true);
 		 RegistrationDetails user = (RegistrationDetails) session.getAttribute("RegistrationDetails");
-		
 		String fname=req.getParameter("firstName");
 	    String lname=req.getParameter("lastName");
 	    String password=req.getParameter("password");
@@ -35,8 +34,8 @@ public class UpdateServlet extends HttpServlet{
 	    }
 	   
 	    try {
-	    UserUpdate.edit(user);
-		resp.sendRedirect("checkout.jsp	");    
+	    MySQLConnUtils.edit(user);
+		resp.sendRedirect("Out.jsp");    
 	    }
 	    catch (Exception e) {
 	        e.printStackTrace();

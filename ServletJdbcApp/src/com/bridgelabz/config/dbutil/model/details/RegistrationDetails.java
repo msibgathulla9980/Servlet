@@ -7,9 +7,13 @@ public class RegistrationDetails {
 	private String email;
 	private String password;
 	private String phoneNumber;
-	
-	
-	
+	private String gender;
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 	public String getFirstName() {
 		return firstName;
 	}

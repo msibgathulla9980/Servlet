@@ -25,13 +25,14 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
     String email=req.getParameter("email");
     String password=req.getParameter("password");
     String mobileNumber=req.getParameter("phoneNumber");
+    String gender=req.getParameter("gender");
     RegistrationDetails user = new RegistrationDetails();
     user.setFirstName(fname);
     user.setLastName(lname);
     user.setEmail(email);
     user.setPassword(password);
     user.setPhoneNumber(mobileNumber);
-    
+    user.setGender(gender);
     
     //list.add(user);
       try {

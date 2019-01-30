@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.ws.Response;
+
 import com.bridgelabz.config.dbutil.model.config.MySQLConnUtils;
 import com.bridgelabz.config.dbutil.model.details.RegistrationDetails;
 
@@ -44,30 +46,34 @@ public class LoginServlet extends HttpServlet {
 		try {
 			//passing user details and receiving the boolean 
 
-			RegistrationDetails logcheck1=MySQLConnUtils.Registration1(log);
+			RegistrationDetails logcheck1=MySQLConnUtils.Validation(log);
+			System.out.println(logcheck1.getFirstName());
 			if (logcheck1!=null)
-			{    HttpSession session=req.getSession();
-			dis= req.getRequestDispatcher("/Welcome.html");
-			dis.forward(req, resp);
-			session.setAttribute("email",email);  
-			session.setMaxInactiveInterval(20);
-			Cookie cookie=new Cookie("email",logcheck1.getEmail());
-			cookie.setMaxAge(60*60);
-			Cookie[] cookies=req.getCookies();
-			if(cookies!=null)
-			{
-				for(Cookie cookie1:cookies) {
-					if(cookie1.getName().equals("JSESSIONID")) {
-						System.out.println("Cookie ID :"+cookie1.getValue());
-					}
-					cookie1.setMaxAge(10);
-					resp.addCookie(cookie1);
-				}
+			{   
 
-			}
-			//encoding session id's with URL but only while redirecting
-//			String encodedURL=resp.encodeURL("Welcome.html");
-//			resp.sendRedirect(encodedURL);
+				HttpSession session=req.getSession();
+				//			dis= req.getRequestDispatcher("/Welcome.jsp");
+				//			dis.forward(req, resp);
+				session.setAttribute("RegistrationDetails",logcheck1);  
+				session.setMaxInactiveInterval(30*60);
+				Cookie cookie=new Cookie("RegistrationDetails",logcheck1.getEmail());
+				cookie.setMaxAge(60*60);
+				resp.sendRedirect("Welcome.jsp");
+				Cookie[] cookies=req.getCookies();
+				if(cookies!=null)
+				{
+					for(Cookie cookie1:cookies) {
+						if(cookie1.getName().equals("JSESSIONID")) {
+							System.out.println("Cookie ID :"+cookie1.getValue());
+						}
+						cookie1.setMaxAge(10);
+						resp.addCookie(cookie1);
+					}
+
+				}
+				//encoding session id's with URL but only while redirecting
+				//			String encodedURL=resp.encodeURL("Welcome.html");
+				//			resp.sendRedirect(encodedURL);
 			}
 
 			else {

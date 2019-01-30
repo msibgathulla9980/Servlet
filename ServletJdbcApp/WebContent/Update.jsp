@@ -24,7 +24,8 @@ Cookie[] cookies = request.getCookies();
 if(cookies !=null){
 for(Cookie cookie : cookies){
     if(cookie.getName().equals("emailid")) EmailId = cookie.getValue();
-}}
+}
+}
 %>
 		<fieldset>
 			<center>
@@ -32,13 +33,12 @@ for(Cookie cookie : cookies){
 			</center>
 			<fieldset>
 <center>
-<form action="Register" method="post">
+<form action="edit" method="post">
 <center><p>Please Enter Your Valid Credentials: </p></center>
-FirstName : <input type="text" name="firstName" placeholder="Enter Your FirstName" required/><br><br>
-LastName : <input type="text" name="lastName" placeholder="Enter Your LastName" required/><br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email : <input type="email" name="email" placeholder="Enter Your Email" required/><br><br>
-&nbsp;&nbsp;Password : <input type="password" name="password" placeholder="Enter Your Password" required/><br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mobile   : <input type="text" name="phoneNumber" placeholder="Enter Your 10 digit PhoneNumber" required/><br><br>
+FirstName : <input type="text" name="firstName" placeholder="Enter Your FirstName" /><br><br>
+LastName : <input type="text" name="lastName" placeholder="Enter Your LastName" /><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Password : <input type="password" name="password" placeholder="Enter Your Password" /><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mobile   : <input type="text" name="phoneNumber" placeholder="Enter Your 10 digit PhoneNumber" /><br><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gender   : 
 <label for="male">Male</label>
   <input type="radio" name="gender" id="male" value="male" >
@@ -46,9 +46,9 @@ LastName : <input type="text" name="lastName" placeholder="Enter Your LastName" 
  <input type="radio" name="gender" id="female" value="female" >
   <label for="other">Other</label>
  <input type="radio" name="gender" id="other" value="other" ><br><br>
-<a href="login.html"> <input type="submit" value="Update"/></a>
+<a href="Out.jsp"> <input type="submit" value="Submit"/></a>
 </form>
-<a href=login.html ><input type="submit" value="Login"/></a>
+<a href="Out.jsp" ><input type="submit" value="Back"/></a>
 </center>
 <fieldset>
 	</form>
